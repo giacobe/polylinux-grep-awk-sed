@@ -68,3 +68,25 @@ Lab-specific VM images are intentionally excluded and deployed separately.
 ## License
 
 Licensed under the GNU General Public License v3.0. See `LICENSE`.
+
+## Build the browser VM
+
+Use the `basic` configuration from
+[`giacobe/buildroot-builder2`](https://github.com/giacobe/buildroot-builder2),
+validated with Buildroot `2025.02.15`:
+
+```sh
+git clone https://github.com/giacobe/buildroot-builder2.git
+cd buildroot-builder2
+BUILDROOT_VERSION=2025.02.15 scripts/01-setup-buildroot.sh
+scripts/02-build-baseline.sh --config basic
+scripts/03-package-payload.sh \
+  --repo https://github.com/giacobe/polylinux-grep-awk-sed.git \
+  --ref main \
+  --baseline artifacts/basic-<timestamp> \
+  --output artifacts/polylinux-grep-awk-sed \
+  --output-prefix polylinux-grep-awk-sed
+```
+
+Replace `<timestamp>` with the stage-2 artifact directory. Review the manifest
+and boot-test the exact generated image pair in v86 before publishing.
