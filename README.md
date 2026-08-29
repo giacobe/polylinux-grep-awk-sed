@@ -1,0 +1,70 @@
+# PolyLinux Text Processing
+
+A deterministic ten-level introductory lab for learning `grep`, `awk`, and
+`sed` in the PolyLinux Buildroot/v86 environment.
+
+Each installation selects one of 16 globally familiar themes from a lab-wide
+SHA-256 hash. Per-level SHA-256 seeds independently vary tokens, identifiers,
+values, capitalization, and layouts. The evidence format and learning objective
+of every level remain stable.
+
+## Repository interface
+
+```text
+.profile
+install.sh
+resources.sh
+level1.sh ... level10.sh
+profile
+nextlevel
+prevlevel
+checklevel
+verify.sh
+test.sh
+LEVELS.md
+TOOLSET.md
+participant-guide.md
+```
+
+When root logs in, `.profile` suppresses kernel console noise, changes to
+`/root`, clears the terminal, and launches `install.sh` automatically. The
+separate `profile` file becomes `/etc/profile` for the ten learner accounts.
+
+Install in the guest as root:
+
+```sh
+sh install.sh
+```
+
+For deterministic deployment or validation:
+
+```sh
+USER_ID=student@example.edu \
+CURRENT_DATE=2026-07-23 \
+SYSTEM_PASSWORD=exercisePassword \
+LEVEL_PASSWORD_ROOT=levelPassword \
+sh install.sh --non-interactive --no-login
+```
+
+Expected answers are stored root-only in:
+
+```text
+/var/lib/text-processing/answers/level1
+...
+/var/lib/text-processing/answers/level10
+```
+
+Generated learner evidence is stored in `/srv/text-processing/cases`, with a
+`data` symlink in each level home.
+
+## Recovered publication material
+
+- `participant-guide.md` is the guide embedded in the recovered initrd.
+- `published-instructions.md` preserves the live web-page instructions.
+- `provenance/RECOVERY-MANIFEST.json` records the recovered `/root` inventory.
+
+Lab-specific VM images are intentionally excluded and deployed separately.
+
+## License
+
+Licensed under the GNU General Public License v3.0. See `LICENSE`.
