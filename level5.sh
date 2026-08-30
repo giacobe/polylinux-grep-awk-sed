@@ -33,5 +33,4 @@ printf 'TARGET_REF=%s\n' "$target" > "$CASE_DIR/TASK.txt"
 } > "$CASE_DIR/records.psv"
 
 write_readme "Read the target reference in data/TASK.txt. data/records.psv contains 4,096 lines. Use awk with | as the field separator to find its row. Submit OWNER|LOCATION exactly as shown."
-record_answer "$owner|$place"
 finish_level

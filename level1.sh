@@ -21,5 +21,4 @@ while [ "$i" -le "$record_count" ]; do
 done > "$CASE_DIR/messages.txt"
 
 write_readme "data/messages.txt contains 4,096 records. Use grep to find the single line containing NOTICE. Submit only the value after FLAG=. The answer is exactly 12 case-sensitive Base64url characters."
-record_answer "$answer"
 finish_level

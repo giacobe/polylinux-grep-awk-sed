@@ -1,3 +1,11 @@
+---
+title: "Text Processing with grep, awk, and sed"
+short_title: "Text Processing"
+panel_title: "Learning Path"
+form_url: ""
+
+---
+
 # Text Processing with grep, awk, and sed
 
 This ten-level lab introduces three standard Linux text-processing commands:

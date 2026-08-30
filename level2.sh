@@ -25,5 +25,4 @@ while [ "$i" -le "$record_count" ]; do
 done > "$CASE_DIR/status.txt"
 
 write_readme "data/status.txt contains 4,096 records. The word PRIORITY appears once, but its capitalization varies. Use grep's case-insensitive option to find it. Submit only the value after CODE=. The answer is exactly 12 case-sensitive Base64url characters."
-record_answer "$answer"
 finish_level

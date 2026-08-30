@@ -19,5 +19,4 @@ while [ "$i" -le "$record_count" ]; do
 done > "$CASE_DIR/queue.txt"
 
 write_readme "data/queue.txt contains 4,096 records. Find the one line that ends with READY. Use grep with a line-end anchor and line numbers. Submit line-number|token, for example 731|Ab3_xY9pQ2. The line number has no leading zero and the token is case-sensitive."
-record_answer "$target_line|$answer"
 finish_level

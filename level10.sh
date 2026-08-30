@@ -39,5 +39,4 @@ p3=$(range_from_byte "$(hex_byte "$(derive_hex layout)" 2)" 6000 7800)
 } > "$CASE_DIR/report.psv"
 
 write_readme "Capstone: read the target category and location in data/TASK.txt. data/report.psv contains 8,192 lines. Keep only records for both targets with status complete. Remove the _units suffix, then count the records and sum their amounts. A grep/sed/awk pipeline is expected. Submit category|count|total, all lowercase with integers containing no leading zeroes."
-record_answer "$answer"
 finish_level

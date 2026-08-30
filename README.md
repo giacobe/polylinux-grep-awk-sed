@@ -18,7 +18,6 @@ level1.sh ... level10.sh
 profile
 nextlevel
 prevlevel
-checklevel
 verify.sh
 test.sh
 LEVELS.md
@@ -46,12 +45,9 @@ LEVEL_PASSWORD_ROOT=levelPassword \
 sh install.sh --non-interactive --no-login
 ```
 
-Expected answers are stored root-only in:
 
 ```text
-/var/lib/text-processing/answers/level1
 ...
-/var/lib/text-processing/answers/level10
 ```
 
 Generated learner evidence is stored in `/srv/text-processing/cases`, with a
@@ -90,3 +86,9 @@ scripts/03-package-payload.sh \
 
 Replace `<timestamp>` with the stage-2 artifact directory. Review the manifest
 and boot-test the exact generated image pair in v86 before publishing.
+
+## Standard runtime contract
+
+The current release uses the reversible PolyBandit exercise code, the versioned `seed-v1` deterministic seed, ten concurrent level generators, staged `README.txt` readiness, unrestricted `nextlevel`/`prevlevel` navigation, and no client-side answer store or checker. See `lab.json` for the authoritative level count, theme policy, Buildroot configuration, and browser artifact names.
+
+Do not rebuild the assigned Buildroot baseline merely to package this lab. Package the repository payload into the configuration named by `buildroot_configuration`, preserve the baseline kernel, and publish the resulting `packaged.bzImage` and `packaged.rootfs.cpio.gz`.

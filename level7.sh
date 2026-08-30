@@ -26,5 +26,4 @@ printf 'TARGET_REF=%s\n' "$target" > "$CASE_DIR/TASK.txt"
 } > "$CASE_DIR/drafts.psv"
 
 write_readme "Read the target reference in data/TASK.txt. data/drafts.psv contains 4,096 lines. Use grep to select that record, then sed to remove everything through |draft- and replace every underscore with one space. Submit the resulting lowercase phrase with single spaces and no leading or trailing space."
-record_answer "$answer"
 finish_level

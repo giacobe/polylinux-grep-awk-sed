@@ -38,5 +38,4 @@ section="$(theme_field category1)-$(hex_fragment section 4)"
 printf 'TARGET_SECTION=%s\n' "$section" > "$CASE_DIR/TASK.txt"
 
 write_readme "Read the target section name in data/TASK.txt. data/sections.txt contains 4,096 lines. Use sed to print only the inclusive range from BEGIN_target through END_target, then extract the value on its ANSWER= line. Submit exactly 13 case-sensitive Base64url characters."
-record_answer "$answer"
 finish_level

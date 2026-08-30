@@ -30,5 +30,4 @@ p3=$(range_from_byte "$(hex_byte "$(derive_hex layout)" 2)" 2900 3900)
 } > "$CASE_DIR/measurements.csv"
 
 write_readme "Read the target category in data/TASK.txt. data/measurements.csv contains 4,096 lines. Use awk with a comma field separator to add VALUE only for that category. Submit the integer total with no spaces or punctuation."
-record_answer "$answer"
 finish_level

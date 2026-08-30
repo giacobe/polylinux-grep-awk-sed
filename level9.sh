@@ -34,5 +34,4 @@ void_position=$(range_from_byte "$(hex_byte "$(derive_hex layout)" 1)" 2200 3840
 } > "$CASE_DIR/jobs.csv"
 
 write_readme "Read the target job in data/TASK.txt. data/jobs.csv contains 4,096 lines. Build a pipeline that uses grep to keep the target's VALID record and awk with a comma separator to print OWNER|VALUE. Submit owner|integer exactly as shown."
-record_answer "$owner|$value"
 finish_level
