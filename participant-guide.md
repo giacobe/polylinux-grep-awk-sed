@@ -18,6 +18,13 @@ All records use fictional names and values. The installation selects one of 16
 themes, but no subject-matter knowledge is required. Each level's `README.txt`
 states the task and exact answer format.
 
+## Starting the exercise
+
+Log in as `root`; no password is required. The root login automatically starts
+the installer and asks for your email address. Confirm the normalized address.
+The VM opens Level 1 as soon as it is ready while the remaining levels continue
+building in parallel.
+
 ## Getting started
 
 At the prompt:
