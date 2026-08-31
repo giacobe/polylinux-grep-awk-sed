@@ -30,7 +30,7 @@ root
 
 The exercise installer starts automatically. Enter and confirm your email
 address when prompted. The installer uses that address, the installation date,
-and exercise passwords to generate your version of the lab.
+and protected seed values to generate your version of the lab.
 
 After installation, you will enter the `level1` account automatically.
 

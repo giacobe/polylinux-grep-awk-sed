@@ -2,9 +2,11 @@
 PS1='\W$ '
 cd "$HOME" || exit 1
 clear
-echo "************************************************************************"
-echo "* PolyLinux Text Processing: grep, awk, and sed                        *"
-echo "* Read README.txt to begin. Your evidence is available through data/.  *"
-echo "* Submit one answer per level. Move with nextlevel and prevlevel.      *"
-echo "************************************************************************"
+box_line() { printf '* %-36.36s *\n' "$1"; }
+echo '****************************************'
+box_line 'PolyLinux: grep, awk, and sed'
+box_line 'Read README.txt to begin.'
+box_line 'Use the exercise grading form.'
+box_line 'Use nextlevel and prevlevel.'
+echo '****************************************'
 cat README.txt

@@ -29,7 +29,7 @@ root
 
 The exercise installer starts automatically. Enter and confirm your email
 address when prompted. The installer displays the exercise code and uses your
-normalized address, the code's date, and exercise passwords to generate your
+normalized address, the code's date, and protected seed values to generate your
 deterministic version of the lab. One of sixteen fictional themes is used for
 the complete attempt.
 
