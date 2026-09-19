@@ -30,4 +30,5 @@ printf 'TARGET_ID=%s\n' "$target" > "$CASE_DIR/TASK.txt"
 } > "$CASE_DIR/inventory.txt"
 
 write_readme "Read the target ID in data/TASK.txt. data/inventory.txt contains 4,096 lines. In this whitespace-separated table, use awk to select that ID and print its LOCATION field. Submit only the location, in lowercase exactly as shown."
+record_expected_answer "$answer"
 finish_level
