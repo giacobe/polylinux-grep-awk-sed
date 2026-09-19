@@ -1,5 +1,5 @@
-# Performance and corrective revision
+# Performance revision
 
-Large evidence files are generated using one BusyBox-compatible awk process per level rather than thousands of shell-loop iterations. The seed, theme, record, target-position, answer, and grader contracts are unchanged.
+The ten level data files are generated with one BusyBox-compatible awk process per level instead of thousands of shell-loop iterations. The seed, theme, target-position, record-layout, and grader answer contracts are unchanged.
 
-Levels 5 and 9 explicitly assemble their expected answers as owner|place and owner|value, preventing unset-variable failures under set -u.
+Level 5 retains its required target_position derivation before invoking awk. No local expected-answer recorder was added; external grading remains authoritative.
