@@ -9,17 +9,7 @@ target_id="$(printf '%s' "$item" | tr 'a-z' 'A-Z')-$(hex_fragment target-id 4)"
 record_count=4096
 target_position=$(range_from_byte "$(hex_byte "$(derive_hex layout)" 0)" 257 3840)
 
-i=1
-while [ "$i" -le "$record_count" ]; do
-    if [ "$i" -eq "$target_position" ]; then
-        printf 'NOTICE %s FLAG=%s\n' "$target_id" "$answer"
-    else
-        printf 'INFO %s-%04d status=normal batch=%04d\n' \
-            "$item" "$i" "$((i % 997))"
-    fi
-    i=$((i + 1))
-done > "$CASE_DIR/messages.txt"
+awk -v count="$record_count" -v target="$target_position" -v id="$target_id" -v answer="$answer" -v item="$item" 'BEGIN { for (i=1;i<=count;i++) if(i==target) printf "NOTICE %s FLAG=%s\n",id,answer; else printf "INFO %s-%04d status=normal batch=%04d\n",item,i,i%997 }' > "$CASE_DIR/messages.txt"
 
 write_readme "data/messages.txt contains 4,096 records. Use grep to find the single line containing NOTICE. Submit only the value after FLAG=. The answer is exactly 12 case-sensitive Base64url characters."
-record_expected_answer "$answer"
 finish_level

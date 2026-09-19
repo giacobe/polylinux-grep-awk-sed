@@ -4,7 +4,7 @@ set -eu
 cd "$(dirname "$0")"
 INSTALL_ROOT=$(pwd)
 LAB_ID='text-processing'
-LAB_TITLE='grep, awk, and sed'
+LAB_TITLE='Text Processing'
 SYSTEM_PASSWORD=${SYSTEM_PASSWORD:-systemPassword}
 LEVEL_PASSWORD_ROOT=${LEVEL_PASSWORD_ROOT:-levelPassword}
 currentDate=${CURRENT_DATE:-$(date +%Y-%m-%d)}
@@ -51,7 +51,7 @@ for cmd in adduser awk base64 cat chmod chown cp cut date find grep head id ln m
 mkdir -p /home /srv/text-processing/cases
 
 cp "$INSTALL_ROOT/profile" /etc/profile
-for helper in nextlevel prevlevel checklevel; do
+for helper in nextlevel prevlevel; do
     cp "$INSTALL_ROOT/$helper" "/usr/bin/$helper"
     chmod 755 "/usr/bin/$helper"
 done

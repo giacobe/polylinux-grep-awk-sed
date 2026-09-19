@@ -140,11 +140,3 @@ finish_level() {
 
 # Override the legacy catalog above with the shared themes-v1 catalog.
 . "$INSTALL_ROOT/polylinux-common.sh"
-
-record_expected_answer() {
-    value=$1
-    answer_root=${ANSWER_ROOT:-/var/lib/text-processing/answers}
-    mkdir -p "$answer_root"
-    printf '%s\n' "$value" > "$answer_root/$levelToBuild"
-    chmod 600 "$answer_root/$levelToBuild" 2>/dev/null || true
-}

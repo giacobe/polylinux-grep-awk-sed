@@ -15,20 +15,7 @@ p1=$(range_from_byte "$(hex_byte "$(derive_hex layout)" 0)" 257 1100)
 p2=$(range_from_byte "$(hex_byte "$(derive_hex layout)" 1)" 1500 2500)
 p3=$(range_from_byte "$(hex_byte "$(derive_hex layout)" 2)" 2900 3900)
 
-{
-    echo "CATEGORY,VALUE"
-    i=1
-    while [ "$i" -le 4095 ]; do
-        case "$i" in
-            "$p1") printf '%s,%d\n' "$category" "$v1" ;;
-            "$p2") printf '%s,%d\n' "$category" "$v2" ;;
-            "$p3") printf '%s,%d\n' "$category" "$v3" ;;
-            *) printf '%s,%d\n' "$other" "$((20 + i % 80))" ;;
-        esac
-        i=$((i + 1))
-    done
-} > "$CASE_DIR/measurements.csv"
+awk -v cat="$category" -v other="$other" -v p1="$p1" -v p2="$p2" -v p3="$p3" -v v1="$v1" -v v2="$v2" -v v3="$v3" 'BEGIN { print "CATEGORY,VALUE"; for(i=1;i<=4095;i++) if(i==p1) print cat "," v1; else if(i==p2) print cat "," v2; else if(i==p3) print cat "," v3; else print other "," 20+i%80 }' > "$CASE_DIR/measurements.csv"
 
 write_readme "Read the target category in data/TASK.txt. data/measurements.csv contains 4,096 lines. Use awk with a comma field separator to add VALUE only for that category. Submit the integer total with no spaces or punctuation."
-record_expected_answer "$answer"
 finish_level
