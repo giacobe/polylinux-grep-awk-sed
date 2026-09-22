@@ -6,6 +6,6 @@
 4. The `seed-v1` NUL-delimited SHA-256 construction is unchanged.
 5. The `themes-v1` catalog and theme ordering are unchanged.
 6. All ten answer derivations are unchanged because they match `lab5Answer()` in the supplied grader.
-7. Canonical runtime paths remain `/srv/text-processing/cases` and `/var/lib/text-processing/answers`.
-8. `checklevel` and `verify.sh` are included without changing externally graded answers.
+7. Learner evidence remains under `/srv/text-processing/cases`; expected-answer comparison stays outside the distributed VM.
+8. The external exercise grading form and unified grader are the sole correctness authority. `verify.sh` remains a developer-side static check and is not a local answer checker.
 9. POSIX `/bin/sh` and BusyBox-compatible utilities remain required.

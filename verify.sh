@@ -7,5 +7,6 @@ for f in "$base"/.profile "$base"/install.sh "$base"/resources.sh "$base"/polyli
 done
 grep -q "^LAB_ID='text-processing'$" "$base/install.sh"
 grep -q '^target_position=' "$base/level5.sh"
+[ ! -e "$base/checklevel" ] || { echo 'local checklevel helper must not ship' >&2; exit 1; }
 ! grep -R -n 'record_expected_answer' "$base"
 echo 'Static verification passed.'
